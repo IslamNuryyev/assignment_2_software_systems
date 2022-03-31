@@ -141,14 +141,9 @@ public class CSVReader {
             summary.get(59).add(String.valueOf(average));
         }
 
-       System.out.println("\n\n");
-
-
-       System.out.println("\n\n");
        System.out.println("summary = " + summary);
 
-        
-
+    
     }
 }
 
