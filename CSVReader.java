@@ -14,7 +14,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.io.File;
 
+
 public class CSVReader {
+     //Part1
     public static void main(String[] args) {
        String file = "airline_safety.csv";
        String line;
@@ -107,7 +109,44 @@ public class CSVReader {
             e.printStackTrace();
         }
 
+
+
+
+        //Part2
        ArrayList<ArrayList<String>> summary = new ArrayList<ArrayList<String>>();
+       summary = lines;
+        summary.add(new ArrayList<>(Arrays.asList("minimum")));
+        summary.add(new ArrayList<>(Arrays.asList("maximum")));
+        summary.add(new ArrayList<>(Arrays.asList("average")));
+
+        for (int i = 1; i < 8; i++) {
+            long max = 0;
+            long min = Long.parseLong((summary.get(1).get(i)));
+            long sum = 0;
+            for (int j = 1; j < summary.size() - 3; j++) {
+                if (Long.parseLong(summary.get(j).get(i)) > max) {
+                    max = Long.parseLong(summary.get(j).get(i));
+                }
+
+                if (Long.parseLong(summary.get(j).get(i)) < min) {
+                    min = Long.parseLong(summary.get(j).get(i));
+                }
+
+                sum += Long.parseLong(summary.get(j).get(i));
+            }
+            long average = sum / (summary.size() - 3);
+
+            summary.get(57).add(String.valueOf(min));
+            summary.get(58).add(String.valueOf(max));
+            summary.get(59).add(String.valueOf(average));
+        }
+
+       System.out.println("\n\n");
+
+
+       System.out.println("\n\n");
+       System.out.println("summary = " + summary);
+
         
 
     }
